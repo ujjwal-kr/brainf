@@ -6,7 +6,7 @@ cmake_minimum_required (VERSION 3.8)
 project ("brainf")
 
 # Add source to this project's executable.
-add_executable (brainf "brainf.cpp" "brainf.h")
+add_executable (brainf "brainf.cpp" "brainf.h" "compile.cpp" "assemble.cpp" "link.cpp")
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET brainf PROPERTY CXX_STANDARD 20)
