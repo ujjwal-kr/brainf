@@ -24,7 +24,7 @@ _start:
   sub rsp, 4000
   mov eax, 0
   mov ecx, 4000
-  mov rid, rsp
+  mov rdi, rsp
   rep stosb
   mov r12, rsp
   sub rsp, 64
@@ -55,7 +55,7 @@ _start:
 				<< "  mov byte [r12], al\n";
 			break;
 		case '.':
-			out << "  move cl, [r12]\n"
+			out << "  mov cl, [r12]\n"
 				   "  call putchar\n";
 			break;
 		case '[':
