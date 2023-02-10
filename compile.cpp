@@ -1,9 +1,18 @@
 #include<fstream>
 #include<stack>
+#include <iostream>
 
 void compile() {
 	std::ifstream in("program.bf");
 	std::ofstream out("compiled.asm");
+
+	if (!out) {
+		std::cerr << "Error: Unable to write to compiled.asm" << std::endl;
+	}
+
+	if (!in) {
+		std::cerr << "Error: Unable to read from program.bf" << std::endl;
+	}
 
 	std::stack<int> labels;
 	int current_label = 0;
@@ -47,4 +56,6 @@ void compile() {
 			break;
 		}
 	}
+
+	std::cout << "Done" << std::endl;
 }
