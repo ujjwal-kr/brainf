@@ -14,6 +14,24 @@ void compile() {
 		std::cerr << "Error: Unable to read from program.bf" << std::endl;
 	}
 
+	auto prolog = R"(
+global  _start
+extern getchar
+extern putchar
+extern exit
+section .text
+_start:
+  sub rsp, 4000
+  mov eax, 0
+  mov ecx, 4000
+  mov rid, rsp
+  rep stosb
+  mov r12, rsp
+  sub rsp, 64
+)";
+
+	out << prolog;
+
 	std::stack<int> labels;
 	int current_label = 0;
 
@@ -57,5 +75,13 @@ void compile() {
 		}
 	}
 
-	std::cout << "Done" << std::endl;
+	auto epilog = R"(
+  add rsp, 4064
+  mov eax, 0
+  call exit
+)";
+
+	out << epilog;
+
+	std::cout << "Compiled" << std::endl;
 }
