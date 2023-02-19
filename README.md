@@ -5,6 +5,7 @@ Making a brainf*ck compiler in 24 hours, using the C++ programming language.
 
 ### Windows
 - Make sure to have [NASM](https://www.nasm.us/) installed.
+- Use MSYS2 as I could not get the linker.exe working.
 - Open visual studio and Press f5.
 
 ### Linux

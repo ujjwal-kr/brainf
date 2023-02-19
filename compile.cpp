@@ -78,7 +78,7 @@ _start:
 	auto epilog = R"(
   add rsp, 4064
   mov eax, 0
-  ret
+  call exit
 )";
 
 	out << epilog;
