@@ -2,8 +2,8 @@
 #include<stack>
 #include <iostream>
 
-void compile() {
-	std::ifstream in("program.bf");
+void compile(std::string filename) {
+	std::ifstream in(filename);
 	std::ofstream out("compiled.asm");
 
 	if (!out) {
